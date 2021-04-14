@@ -10,7 +10,7 @@ class KeepFetchingVideosForCategoryListUsecase extends UsecaseOfStream<List<Vide
   KeepFetchingVideosForCategoryListUsecase(this.repository);
   @override
   Stream<Either<Failure, List<VideoEntity>>> call(List<String> categories) async* {
-    final stream = repository.keepFetchingVideosForCategoryList(categories);
+    final stream = repository.keepFetchingMostPopVideos(categories);
     yield* stream;
   }
 }
