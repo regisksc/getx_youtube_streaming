@@ -17,39 +17,4 @@ class VideoEntity extends Equatable {
 
   @override
   List<Object> get props => [id, title, thumbnailUrl, channelTitle];
-  // VideoEntity copyWith({
-  //   String? id,
-  //   String? title,
-  //   String? thumbnailUrl,
-  //   String? channelTitle,
-  // }) {
-  //   return VideoEntity(
-  //     id: id ?? this.id,
-  //     title: title ?? this.title,
-  //     thumbnailUrl: thumbnailUrl ?? this.thumbnailUrl,
-  //     channelTitle: channelTitle ?? this.channelTitle,
-  //   );
-  // }
-
-  // Map<String, dynamic> toMap() {
-  //   return {
-  //     'id': id,
-  //     'title': title,
-  //     'thumbnailUrl': thumbnailUrl,
-  //     'channelTitle': channelTitle,
-  //   };
-  // }
-
-  // factory VideoEntity.fromMap(Map<String, dynamic> map) {
-  //   return VideoEntity(
-  //     id: map['id'],
-  //     title: map['title'],
-  //     thumbnailUrl: map['thumbnailUrl'],
-  //     channelTitle: map['channelTitle'],
-  //   );
-  // }
-
-  // String toJson() => json.encode(toMap());
-
-  // factory VideoEntity.fromJson(String source) => VideoEntity.fromMap(json.decode(source));
 }
