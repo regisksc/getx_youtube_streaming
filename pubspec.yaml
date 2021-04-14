@@ -11,14 +11,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get:
-  dartz:
-
   cupertino_icons: ^1.0.2
+  dartz: null
+  get: null
+  youtube_player_flutter: ^8.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  lint:
 
 flutter:
   uses-material-design: true
