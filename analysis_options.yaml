@@ -12,9 +12,11 @@ linter:
     # - avoid_print
     # - avoid_relative_lib_imports
     # - avoid_types_on_closure_parameters
+    # - flutter_style_todos
     # - cascade_invocations
     # - curly_braces_in_flow_control_structures
     # - prefer_double_quotes
+    # - avoid_renaming_method_parameters
     # - prefer_foreach
     # - prefer_mixin
     # - public_member_api_docs
@@ -38,7 +40,6 @@ linter:
     - avoid_null_checks_in_equality_operators
     - avoid_positional_boolean_parameters
     - avoid_private_typedef_functions
-    - avoid_renaming_method_parameters
     - avoid_return_types_on_setters
     - avoid_returning_null
     - avoid_returning_null_for_future
@@ -65,7 +66,6 @@ linter:
     - empty_constructor_bodies
     - empty_statements
     - file_names
-    - flutter_style_todos
     - hash_and_equals
     - implementation_imports
     - invariant_booleans
@@ -168,7 +168,9 @@ analyzer:
     # prefer_double_quotes: error
     # prefer_foreach: error
     # public_member_api_docs: error
+    # flutter_style_todos: error
     #    use_setters_to_change_properties: error
+    # avoid_renaming_method_parameters: error
     # sort_constructors_first: error
     always_declare_return_types: error
     always_put_required_named_parameters_first: error
@@ -192,7 +194,6 @@ analyzer:
     avoid_null_checks_in_equality_operators: error
     avoid_positional_boolean_parameters: error
     avoid_private_typedef_functions: error
-    avoid_renaming_method_parameters: error
     avoid_return_types_on_setters: error
     avoid_returning_null: error
     avoid_returning_null_for_future: error
@@ -221,7 +222,6 @@ analyzer:
     empty_constructor_bodies: error
     empty_statements: error
     file_names: error
-    flutter_style_todos: error
     hash_and_equals: error
     implementation_imports: error
     invariant_booleans: error
