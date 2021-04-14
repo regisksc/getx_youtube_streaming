@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   dartz: null
   get: null
+  equatable:
   youtube_player_flutter: ^8.0.0
 
 dev_dependencies:
