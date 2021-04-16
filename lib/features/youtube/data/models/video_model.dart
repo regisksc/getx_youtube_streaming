@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import '../../domain/entities/video_entity.dart';
+
 class VideoModel {
   final String id;
   final String title;
@@ -32,4 +34,11 @@ class VideoModel {
 
   @override
   String toString() => 'VideoModel(id: $id, title: $title, thumbnailUrl: $thumbnailUrl, channelTitle: $channelTitle)';
+
+  VideoEntity get toEntity => VideoEntity(
+        id: id,
+        title: title,
+        thumbnailUrl: thumbnailUrl,
+        channelTitle: channelTitle,
+      );
 }

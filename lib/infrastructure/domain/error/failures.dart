@@ -14,3 +14,9 @@ class NoConnectionFailure extends Failure {
   static String get defaultMessage => 'Ops, parece que estamos sem conexão!';
   NoConnectionFailure({String? message}) : super(message: message ?? defaultMessage, title: defaultTitle);
 }
+
+class FetchErrorFailure extends Failure {
+  static String get defaultTitle => 'Problema com a requisição';
+  static String get defaultMessage => 'Ops, parece que aconteceu algo com sua request!';
+  FetchErrorFailure({String? message}) : super(message: message ?? defaultMessage, title: defaultTitle);
+}
