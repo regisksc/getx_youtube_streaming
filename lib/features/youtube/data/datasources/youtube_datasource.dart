@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:dartz/dartz.dart';
+import 'package:get/get.dart';
 import 'package:get/get_connect/connect.dart';
 
 import '../../../../infrastructure/domain/error/failures.dart';
@@ -11,7 +12,7 @@ import '../models/video_model.dart';
 class YoutubeDataSource {
   final GetConnect http;
   YoutubeDataSource({required this.http});
-  static const String _baseUrl = 'www.googleapis.com';
+  static const String _baseUrl = 'https://www.googleapis.com';
   static const maxFetches = 10;
 
   Stream<Either<Failure, List<VideoModel>>> streamVideos() async* {
@@ -26,11 +27,12 @@ class YoutubeDataSource {
           nextRefreshIntervalInSeconds = randomGenerator.nextInt(10);
         } while (nextRefreshIntervalInSeconds < 5);
         iterationCount++;
+        print('fetch $iterationCount');
         response = await _fetchVideos(response);
       },
     );
     if (response.statusCode != null) yield* _yieldData(response);
-    if (iterationCount == maxFetches) {
+    if (iterationCount == maxFetches - 1) {
       timer.cancel();
       return;
     }

@@ -1,35 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key, this.title = 'Getx Youtube'}) : super(key: key);
-  int _counter = 0;
-  final String title;
+import 'app_bindings.dart';
+import 'app_routes.dart';
 
-  void _incrementCounter() {
-    _counter++;
-  }
-
+class AppWidget extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: Text(title)),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
+  Widget build(BuildContext context) => GetMaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(primarySwatch: Colors.red),
+        getPages: AppPages.pages,
+        initialRoute: Routes.home,
+        initialBinding: AppBinding(),
       );
 }
