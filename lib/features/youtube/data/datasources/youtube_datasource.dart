@@ -13,28 +13,25 @@ class YoutubeDataSource {
   final GetConnect http;
   YoutubeDataSource({required this.http});
   static const String _baseUrl = 'https://www.googleapis.com';
-  static const maxFetches = 10;
+  static const maxFetches = 3;
 
   Stream<Either<Failure, List<VideoModel>>> streamVideos() async* {
-    int nextRefreshIntervalInSeconds = 5;
-    int iterationCount = 0;
-    final randomGenerator = Random();
-    Response response = const Response();
-    final timer = Timer.periodic(
-      Duration(seconds: nextRefreshIntervalInSeconds),
-      (timer) async {
+    print('start');
+    try {
+      final randomGenerator = Random();
+      Response response = const Response();
+      for (int i = 0; i < maxFetches; i++) {
+        int nextRefreshIntervalInSeconds = 5;
         do {
-          nextRefreshIntervalInSeconds = randomGenerator.nextInt(10);
+          nextRefreshIntervalInSeconds = randomGenerator.nextInt(5);
         } while (nextRefreshIntervalInSeconds < 5);
-        iterationCount++;
-        print('fetch $iterationCount');
+        await Future.delayed(Duration(seconds: nextRefreshIntervalInSeconds));
         response = await _fetchVideos(response);
-      },
-    );
-    if (response.statusCode != null) yield* _yieldData(response);
-    if (iterationCount == maxFetches - 1) {
-      timer.cancel();
-      return;
+        print('Algo');
+        yield* _yieldData(response);
+      }
+    } on Exception catch (e) {
+      print(e);
     }
   }
 
